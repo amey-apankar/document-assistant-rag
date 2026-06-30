@@ -54,7 +54,7 @@ def embed_and_store_chunks(chunks: list):
     metadatas = [c["metadata"] for c in chunks]
     
     response = genai.embed_content(
-        model="models/embedding-001",
+        model="models/text-embedding-004",
         content=texts,
         task_type="retrieval_document"
     )
@@ -71,7 +71,7 @@ def embed_and_store_chunks(chunks: list):
 
 def query_rag(user_query: str, n_results: int = 3):
     query_resp = genai.embed_content(
-        model="models/embedding-001",
+        model="models/text-embedding-004",
         content=user_query,
         task_type="retrieval_query"
     )
