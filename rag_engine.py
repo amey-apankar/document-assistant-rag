@@ -53,8 +53,9 @@ def embed_and_store_chunks(chunks: list):
     texts = [c["content"] for c in chunks]
     metadatas = [c["metadata"] for c in chunks]
     
+    # UPDATED: Using the new embedding model
     response = genai.embed_content(
-        model="models/text-embedding-004",
+        model="models/gemini-embedding-001",
         content=texts,
         task_type="retrieval_document"
     )
@@ -71,7 +72,7 @@ def embed_and_store_chunks(chunks: list):
 
 def query_rag(user_query: str, n_results: int = 3):
     query_resp = genai.embed_content(
-        model="models/text-embedding-004",
+        model="models/gemini-embedding-001",
         content=user_query,
         task_type="retrieval_query"
     )
